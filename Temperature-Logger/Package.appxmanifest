@@ -23,6 +23,7 @@
       <Extensions>
         <Extension Category="windows.backgroundTasks" EntryPoint="Temperature_Logger.StartupTask">
           <BackgroundTasks>
+            <Task Type="timer" />
             <iot:Task Type="startup" />
           </BackgroundTasks>
         </Extension>
