@@ -10,10 +10,24 @@ namespace Temperature_Logger
 {
     public sealed class StartupTask : IBackgroundTask
     {
+        static RegistryManager registryManager;
+        static string connectionString = "";
+
+        private static void Register()
+        {
+            var deviceId = "Raspberry3";
+            registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+            var deviceTask = registryManager.AddDeviceAsync(new Device(deviceId));
+            deviceTask.Wait();
+            Debug.WriteLine($"Key {deviceTask.Result.Authentication.SymmetricKey}");
+        }
+
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
 
             BackgroundTaskDeferral btd = taskInstance.GetDeferral();
+
+
 
             try
             {
