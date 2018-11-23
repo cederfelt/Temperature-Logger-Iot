@@ -1,0 +1,3 @@
+[submodule "IotDeviceLibrary"]
+	path = IotDeviceLibrary
+	url = https://github.com/chaudi/IotDeviceLibrary.git
